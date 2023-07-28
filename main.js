@@ -10,10 +10,10 @@ const newsType = document.getElementById("newsType");
 const newsDetails = document.getElementById("newsDetails");
 
 const API_KEY = "0b051dc0e3f443209c71850cbeb68f0e";
-const LOCAL_NEWS = "https://newsapi.org/v2/top-headlines?country=eg&apiKey=0b051dc0e3f443209c71850cbeb68f0e";
-const BUSINESS_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=0b051dc0e3f443209c71850cbeb68f0e";
-const SPORTS_NEWS = "https://newsapi.org/v2/top-headlines?country=fr&category=sports&apiKey=0b051dc0e3f443209c71850cbeb68f0e";
-const TECH_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=0b051dc0e3f443209c71850cbeb68f0e";
+const LOCAL_NEWS = "https://newsapi.org/v2/top-headlines?country=eg&apiKey=";
+const BUSINESS_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=";
+const SPORTS_NEWS = "https://newsapi.org/v2/top-headlines?country=fr&category=sports&apiKey=";
+const TECH_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=";
 const SEARCH_NEWS = "https://newsapi.org/v2/everything?q=";
 
 var newsDataArr = [];
@@ -62,7 +62,7 @@ searchBtn.addEventListener("click", function(){
 });
 
 const fetchLocalNews = async() => {
-    const response = await fetch(LOCAL_NEWS);
+    const response = await fetch(LOCAL_NEWS+API_KEY);
     newsDataArr = [];
     if(response.status >= 200 && response.status < 300){
         const myJson = await response.json();
@@ -78,7 +78,7 @@ const fetchLocalNews = async() => {
 }
 
 const fetchBusinessNews = async() => {
-    const response = await fetch(BUSINESS_NEWS);
+    const response = await fetch(BUSINESS_NEWS+API_KEY);
     newsDataArr = [];
     if(response.status >= 200 && response.status < 300){
         const myJson = await response.json();
@@ -94,7 +94,7 @@ const fetchBusinessNews = async() => {
 }
 
 const fetchSportsNews = async() => {
-    const response = await fetch(SPORTS_NEWS);
+    const response = await fetch(SPORTS_NEWS+API_KEY);
     newsDataArr = [];
     if(response.status >= 200 && response.status < 300){
         const myJson = await response.json();
@@ -110,7 +110,7 @@ const fetchSportsNews = async() => {
 }
 
 const fetchTechNews = async() => {
-    const response = await fetch(TECH_NEWS);
+    const response = await fetch(TECH_NEWS+API_KEY);
     newsDataArr = [];
     if(response.status >= 200 && response.status < 300){
         const myJson = await response.json();
